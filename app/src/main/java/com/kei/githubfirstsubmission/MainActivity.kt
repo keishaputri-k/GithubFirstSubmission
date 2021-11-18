@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.kei.githubfirstsubmission.data.model.Users
-import com.kei.githubfirstsubmission.data.model.UsersItem
 import com.kei.githubfirstsubmission.data.repository.DataUsers
 import com.kei.githubfirstsubmission.databinding.ActivityMainBinding
 import java.io.IOException
