@@ -6,8 +6,8 @@ import com.bumptech.glide.Glide
 import com.kei.githubfirstsubmission.data.model.Users
 import com.kei.githubfirstsubmission.databinding.ActivityDetailBinding
 
-class  DetailActivity : AppCompatActivity() {
-    private lateinit var detailBinding  : ActivityDetailBinding
+class DetailActivity : AppCompatActivity() {
+    private lateinit var detailBinding: ActivityDetailBinding
     private lateinit var users: Users
 
 
@@ -21,16 +21,21 @@ class  DetailActivity : AppCompatActivity() {
     }
 
     private fun showDetail() {
-        Glide.with(this).load(users.avatar).circleCrop().into(detailBinding.ivUserDetail)
-        detailBinding.tvFollowersDetail.text = users.follower.toString()
-        detailBinding.tvFollowingDetail.text = users.following.toString()
-        detailBinding.tvNameUserDetail.text = users.username
-        detailBinding.tvCompanyUserDetail.text = users.company
-        detailBinding.tvLocationUserDetail.text = users.location
+        detailBinding.apply {
+            Glide.with(this.root).load(users.avatar).circleCrop().into(ivUserDetail)
+            tvFollowersDetail.text = users.follower.toString()
+            tvFollowingDetail.text = users.following.toString()
+            tvNameUserDetail.text = users.name
+            tvUsernameUserDetail.text = users.username
+            tvCompanyUserDetail.text = users.company
+            tvLocationUserDetail.text = users.location
+
+        }
+
 
     }
 
-    companion object{
+    companion object {
         const val EXTRA_USER = "extra_user"
     }
 }

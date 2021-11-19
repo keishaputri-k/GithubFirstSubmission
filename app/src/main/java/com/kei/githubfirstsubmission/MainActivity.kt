@@ -15,12 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
     private var list = ArrayList<Users>()
 
-    companion object{
-        fun getLaunchService(from : Context)= Intent(from, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -68,5 +62,11 @@ class MainActivity : AppCompatActivity() {
         val intentDetail = Intent(this@MainActivity, DetailActivity::class.java)
         intentDetail.putExtra(DetailActivity.EXTRA_USER, users)
         startActivity(intentDetail)
+    }
+
+    companion object{
+        fun getLaunchService(from : Context)= Intent(from, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
     }
 }
